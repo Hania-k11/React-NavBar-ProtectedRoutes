@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 import Home from './Home';
 import Unauthorized from './Unauthorized';
 import ProtectedRoute from './ProtectedRoute';
+import Protect from './Protect';
 
 const LoginForm = () => {
     const mystate= useContext(AuthContext);

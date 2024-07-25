@@ -7,14 +7,16 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Home from './components/Home';
 import NoPage from './components/NoPage';
-import Unauthorized from './components/Unauthorized'
-import { useAuth } from './context/AuthContext'
 import { AuthContext } from './context/AuthContext';
 import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
+import Protect from './components/Protect';
+
 
 function App() {
+
+  
 
    const state = useContext(AuthContext)
   console.log("Contextyy", state)
@@ -24,10 +26,17 @@ function App() {
 <>
 
 <Router>
-       
+
         <Routes>
-          <Route path="/" element={<Loginform />} />
-          <Route
+          <Route path="/" element={
+           <Protect>
+              <Loginform />
+              </Protect>
+              
+            } />
+
+
+<Route
             path="/home"
             element={
               <ProtectedRoute>

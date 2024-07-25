@@ -4,9 +4,10 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
 const ProtectedRoute = ({children}) => {
+    
   const protectedd = useContext(AuthContext);
 
-  if (!protectedd.isAuthenticated) {
+  if (!protectedd.isAuthenticated && !protectedd.attempted) {
     return <Navigate to="/" />;
   }
 
